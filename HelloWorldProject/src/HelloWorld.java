@@ -10,7 +10,7 @@ public class HelloWorld {
 		 * mehr zeiliger kommentar kommentar
 		 * hallo
 		 */
-
+          System.out.println("hallo klasse");
 	}
 
 }
