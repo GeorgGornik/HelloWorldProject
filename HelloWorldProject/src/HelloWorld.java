@@ -14,4 +14,3 @@ public class HelloWorld {
 	         System.out.println("guten Tach");
 	}
 }
-s
