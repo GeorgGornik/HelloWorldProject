@@ -52,6 +52,29 @@ public class Variable {
        //
        System.out.println(System.currentTimeMillis()/1000/60/60/24/365);
        
+       //
+       // Bei der Float Variabel werden auch die Zahlen hinter die Komma angezeitgt
+       float floatVar;
+       floatVar = 10/3f; //10/3.0
+       System.out.println(floatVar);
+       System.out.println(Float.MAX_VALUE);
+       System.out.println(Float.MIN_VALUE);
+       //
+       //
+       //
+       double doubleVar;
+       doubleVar = 10/3d; //10/3.0
+       System.out.println("Double: ");
+       System.out.println(doubleVar);
+       //
+       System.out.println("Float: ");
+       System.out.println(floatVar);
+       //
+       //
+       //Mit der String Variable kann man Wörter speichern
+       String stringVar;
+       stringVar = "Hallo Georg";
+       System.out.println(stringVar);
        
        
        
