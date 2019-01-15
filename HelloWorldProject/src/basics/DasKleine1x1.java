@@ -7,7 +7,7 @@ public class DasKleine1x1 {
 
 		//
 		for(int i = 1; i <= 10; i++) {
-			System.out.println((0+i)+ "er"); 
+			System.out.print((0+i)+ "er"); 
 			for(int x = 1; x <= 10; x++) {
 			
 				System.out.print("\t" + (i*x)); 
