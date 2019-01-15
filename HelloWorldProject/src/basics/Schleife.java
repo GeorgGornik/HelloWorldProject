@@ -15,15 +15,18 @@ public class Schleife {
 		
 		System.out.println("");
 		System.out.println("Eine Schleife die von 100-1 zählt:"); //Arbeitsauftrag:
+	
 		//Zahl ist 100
 		//Zahl ist 99
 		//Zahl ist 98
 		//Zahl ist ...
 		//Zahl ist 1
-		for (int i = 100; i >= 1; i = i - 1) {
-			System.out.println("Zahl ist" + i);
-		}
+
+			for (int i = 100; i >= 1; i = i - 1) {
+				System.out.println("Zahl ist" + i);
 	}
 	
 
+   }
+	
 }
