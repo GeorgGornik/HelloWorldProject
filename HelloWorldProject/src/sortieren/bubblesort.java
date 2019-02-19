@@ -16,10 +16,10 @@ public class bubblesort {
 				}// Ende if
 			}// Ende innere for Schleife
 		}// Ende äußere for-Schleife
-		
+		// lol die direktorin steht da und ich spiele minecraft und sie denkt ich habe was zu tun 
 		for  ( int i = 0; i < zahlen.length; i++) {
 			System.out.println(zahlen [i]);
-			}
+			} 
 	}
 	
 	
