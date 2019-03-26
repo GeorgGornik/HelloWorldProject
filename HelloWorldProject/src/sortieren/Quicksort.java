@@ -11,11 +11,12 @@ public class Quicksort {
 		for (int i : zahlen)
 			System.out.println(i);
 
-		
+		System.out.println("--------------------------------");
+
 		quicksort(0, zahlen.length - 1);
 		for (int i : zahlen)
 			System.out.println(i);
-
+		
 	}
 
 	static void quicksort(int links, int rechts) {
@@ -29,9 +30,7 @@ public class Quicksort {
 			quicksort(links, teiler - 1);
 
 			quicksort(teiler + 1, rechts);
-            
-		   
-			 
+
 		}
 
 	}
@@ -44,7 +43,7 @@ public class Quicksort {
 		// Suche von links ein Element, welches größer als das Pivotelement ist
 		do {
 
-			while (i < j && zahlen[i] > pivot) {
+			while (i < j && zahlen[i] < pivot) {
 				i = i + 1;
 
 			}
