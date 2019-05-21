@@ -1,12 +1,16 @@
-package Data;
+package data;
+
+import java.util.ArrayList;
 
 public class Person {
-
+	//
+	private static ArrayList<Person> liste = new ArrayList<Person>();
+	//
 	private String vorname;
 	private String nachname;
-	private String strasse;
+	private String straﬂe;
 	private String hausnummer;
-	private String plz;
+	private String PLZ;
 	private String ort;
 	//
 	public String getVorname() {
@@ -21,11 +25,11 @@ public class Person {
 	public void setNachname(String nachname) {
 		this.nachname = nachname;
 	}
-	public String getStrasse() {
-		return strasse;
+	public String getStraﬂe() {
+		return straﬂe;
 	}
-	public void setStrasse(String strasse) {
-		this.strasse = strasse;
+	public void setStraﬂe(String straﬂe) {
+		this.straﬂe = straﬂe;
 	}
 	public String getHausnummer() {
 		return hausnummer;
@@ -33,11 +37,11 @@ public class Person {
 	public void setHausnummer(String hausnummer) {
 		this.hausnummer = hausnummer;
 	}
-	public String getPlz() {
-		return plz;
+	public String getPLZ() {
+		return PLZ;
 	}
-	public void setPlz(String plz) {
-		this.plz = plz;
+	public void setPLZ(String pLZ) {
+		PLZ = pLZ;
 	}
 	public String getOrt() {
 		return ort;
@@ -46,5 +50,13 @@ public class Person {
 		this.ort = ort;
 	}
 	
+	public String toString() {
+		return getNachname() + ", " + getVorname();
 	
+	}
+	public static ArrayList<Person> getListe() {
+		return liste;
+	}
+
 }
+

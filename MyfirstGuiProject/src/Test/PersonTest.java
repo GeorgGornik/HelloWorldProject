@@ -1,6 +1,6 @@
 package Test;
 
-import Data.Person;
+import data.Person;
 
 public class PersonTest {
 
