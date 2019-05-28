@@ -1,8 +1,14 @@
 package gui;
 
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -211,12 +217,38 @@ public class MyNewGUIWindowII {
 		btnJson.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Gson gson = new GsonBuilder().setPrettyPrinting().create();
-				System.out.println(gson.toJson(Person.getListe()));
+				Gson gson = new GsonBuilder().setPrettyPrinting().create(); 
+				FileDialog fd = new FileDialog(shlFrWindow, SWT.OPEN);
+				//
+				fd.setFilterExtensions(new String[] {".humptydumpty"});
+				fd.setFilterPath("%TEMP%");
+				//
+				fd.open();
+				//
+				//System.out.println(gson.toJson(Person.getListe()));
+				//
+				try {
+					File JsonFile = File.createTempFile("wpfinf-Json-", ".humptydumpty");
+					FileWriter fw = new FileWriter(JsonFile);
+					//
+					gson.toJson(Person.getListe(), fw);
+					//
+					fw.flush();
+					fw.close();
+					// explorer öffnen %temp%
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			
 			}
 		});
 		btnJson.setBounds(375, 85, 75, 25);
 		btnJson.setText("Json");
+		
+		Button btnLoad = new Button(shlFrWindow, SWT.NONE);
+		btnLoad.setBounds(375, 185, 75, 25);
+		btnLoad.setText("Load");
 		shlFrWindow.setTabList(new Control[]{vornameTF, nachnameTF, StraßeTF, HausnummerTF, PLZTF, OrtTF, btnNewButton});
 
 	}
