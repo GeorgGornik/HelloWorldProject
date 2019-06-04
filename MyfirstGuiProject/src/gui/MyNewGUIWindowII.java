@@ -5,9 +5,15 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
 
+
+
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -218,13 +224,6 @@ public class MyNewGUIWindowII {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Gson gson = new GsonBuilder().setPrettyPrinting().create(); 
-				FileDialog fd = new FileDialog(shlFrWindow, SWT.OPEN);
-				//
-				fd.setFilterExtensions(new String[] {".humptydumpty"});
-				fd.setFilterPath("%TEMP%");
-				//
-				fd.open();
-				//
 				//System.out.println(gson.toJson(Person.getListe()));
 				//
 				try {
@@ -235,6 +234,7 @@ public class MyNewGUIWindowII {
 					//
 					fw.flush();
 					fw.close();
+					
 					// explorer öffnen %temp%
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
@@ -247,6 +247,36 @@ public class MyNewGUIWindowII {
 		btnJson.setText("Json");
 		
 		Button btnLoad = new Button(shlFrWindow, SWT.NONE);
+		btnLoad.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				FileDialog fd = new FileDialog(shlFrWindow, SWT.OPEN);
+				//
+				fd.setFilterExtensions(new String[] {"*.humptydumpty"});
+				fd.setFilterPath("%TEMP%");
+				//
+				String filename = fd.open(); 
+				//
+				System.out.println(filename);
+				if (filename != null) {
+					try {
+						FileReader fr = new FileReader(filename);
+						//
+						Gson gson = new GsonBuilder().setPrettyPrinting().create(); 
+						Person[] personen = gson.fromJson(fr, Person[].class);
+						ArrayList<Person> personListe =  new ArrayList<Person>(Arrays.asList(personen));
+						//
+						System.out.println(personListe);
+						//
+						Person.setListe(personListe);
+						//
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
+					}
+				}
+
+			}
+		});
 		btnLoad.setBounds(375, 185, 75, 25);
 		btnLoad.setText("Load");
 		shlFrWindow.setTabList(new Control[]{vornameTF, nachnameTF, StraßeTF, HausnummerTF, PLZTF, OrtTF, btnNewButton});
